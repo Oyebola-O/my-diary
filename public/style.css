@@ -1,0 +1,383 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+}
+
+/*** Reusable Objects ***/
+a {
+  text-decoration: none;
+}
+
+.submit {
+  margin-top: 20px;
+  display: inline-block;
+  background-color: blue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  max-width: 210px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.submit span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.submit span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.submit:hover span {
+  padding-right: 25px;
+}
+
+.submit:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.background {
+  opacity: 0.95;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.myDiary_txt {
+  font-family:monospace;
+}
+
+.in {
+  width: 40%;
+  height: 30px;
+  font-size: 18px;
+  outline-width: 0;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  margin-top: 30px;
+}
+
+.in:focus {
+    border-bottom: 3px solid blue;
+}
+
+
+
+/*** Account Page ***/
+#body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-image: url("./images/img3.jpg");
+}
+
+#acc_intro {
+  color:white;
+  font-size: 110px;
+  margin-left: 60px;
+}
+
+#txt1 {
+  position:absolute;
+  font-family: monospace;
+  color: white;
+  font-size: 25px;
+  margin-left: 60px;
+}
+
+#main {
+  position:relative;
+  left: 15%;
+  top: 45%;
+  width: 550px;
+  height: 375px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: white;
+}
+
+#no_account {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  position: absolute;
+  left: 55%;
+  bottom: 0%;
+  width:45%;
+  height: 110%;
+  background-color: #bfbfbf;
+}
+
+.txt2 {
+  position: relative;
+  top: 4%;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+#sign_up {
+  width: 100%;
+  padding-left: 20px;
+  float: left;
+}
+
+#in_sign_up {
+  width: 80%;
+  height: 30px;
+  font-size: 18px;
+  outline-width: 0;
+  border: none;
+  border-bottom: 2px solid blue;
+  margin-top: 30px;
+  background-color: #bfbfbf;
+}
+
+#in_sign_up:focus {
+  border-bottom: 3px solid grey;
+}
+
+::placeholder {
+  color: blue;
+  opacity: 0.8;
+}
+
+
+.forms {
+  margin-left: 30px;
+  margin-top: -10px;
+}
+
+
+.link {
+  color: blue;
+}
+
+/*** Diary Page ***/
+#whole_page {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(40, 37, 36);
+}
+
+#bar {
+  width: 100%;
+  height: 11%;
+  background-color: rgb(28, 26, 25);
+}
+
+#begin {
+  margin-left: 20px;
+}
+
+#diary_intro {
+  font-size: 30px;
+  color: white;
+  margin-bottom: -6px;
+}
+
+#entries {
+  float: right;
+  color: white;
+  font-family: monospace;
+  margin-right: 50px;
+}
+
+#Welcome {
+  font-family: monospace;
+  font-size: 20px;
+  color: white;
+}
+
+#toolbar {
+  margin: 0px auto;
+  margin-top: 30px;
+  height: 10%;
+}
+
+.image {
+  cursor: pointer;
+  border-radius: 50%;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 119, 255);
+  transition-duration: 0.4s;
+}
+
+.image:hover {
+  border: 3px solid grey;
+  background-color: rgb(28, 26, 25);
+  transform: scale(1.1);
+}
+
+img {
+  position: relative;
+  top: 20%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30px;
+}
+
+#middle {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/*** Page ***/
+#page {
+  height: 62%;
+  overflow: scroll;
+  display: grid;
+  grid-gap: 30px;
+  padding: 50px;
+  margin-top: 10px;
+  grid-template-columns: auto auto auto auto;
+}
+
+.story {
+  width: 300px;
+  height: 200px;
+  /* background-color: white; */
+  background-color: rgb(28, 26, 25);
+  border: none;
+  font-size: 30px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: all .2s ease-in-out;
+}
+
+.story:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
+.title {
+  color: rgb(0, 119, 255);
+  margin-top: 40px;
+  font-family:monospace;
+  font-size: 25px;
+}
+
+.date {
+  color: rgb(0, 119, 255);
+  margin-top: 60px;
+  font-family:monospace;
+  font-size: 16px;
+}
+
+/*** Popups ***/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  margin-top: 100px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 27%;
+  height: 60%;
+  position: relative;
+  transition: all 500ms ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: blue;
+}
+
+.popup .submit {
+  margin-top: 0px;
+  max-width: 400px;
+}
+
+.note_title {
+  margin: 20px;
+  font-size: 25px;
+  font-family: monospace;
+  width: 80%;
+  height: 30px;
+  outline-width: 0;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+}
+
+.note_title:focus {
+  border-bottom: 3px solid blue;
+}
+
+.notes {
+  background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
+  background-image: linear-gradient(left, white 10px, transparent 10px), linear-gradient(right, white 10px, transparent 10px), linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
+  background-size: 100% 100%, 100% 100%, 100% 31px;
+  border: none;
+  line-height: 31px;
+
+  font-family: monospace;
+  font-size: 18px;
+  padding: 8px;
+  margin: 20px;
+  width:80%;
+  height:293px;
+
+  resize: none;
+}
+.notes:focus {
+  outline: none;
+}
+
+
+/*** Notification ***/
+.date_a_time {
+  margin-bottom: 20px;
+  outline: none;
+  width: 100%;
+  height: 30px;
+  border: none;
+}
+
+.txt3 {
+  padding-top: 15px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
