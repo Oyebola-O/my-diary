@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A place where users can pen down their thoughts and feelings",
   "scripts": {
-    "test": "mocha --require babel-register"
+    "test": "mocha --exit"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
