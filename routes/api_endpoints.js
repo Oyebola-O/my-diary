@@ -1,29 +1,43 @@
 import express from 'express';
-import bodyParser from "body-parser";
+
 const router = express.Router();
-let entries = [];
-
-
+const entries = [
+  { id: 0, title: 'Title 0', text: 'Text 0' },
+  { id: 1, title: 'Title 1', text: 'Text 1' },
+];
 
 
 // Create entries
-router.post('/api/v1/entries', (req, res) =>{
-  let title = req.body.title;
-  let text = req.body.text;
-  let id = entries.length;
+router.post('/api/v1/entries', (req, res) => {
+  const title = req.body.title;
+  const text = req.body.text;
+  const id = entries.length;
 
-  let entry = {
-    id: id,
-    title: title,
-    text: text
-  }
+  const entry = {
+    id,
+    title,
+    text,
+  };
 
   res.send(
     {
-    message: "An entry has been created",
-    details: entry
-  });
+      message: 'An entry has been created',
+      details: entry,
+    },
+  );
   res.status(200).end();
+});
+
+
+// Get entries
+router.get('/api/v1/entries/:id?', (req, res) => {
+  const id = req.params.id;
+
+  if (!id) {
+    res.send(entries);
+  } else {
+    // TODO: Case 2, when there is an id
+  }
 });
 
 
