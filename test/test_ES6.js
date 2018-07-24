@@ -1,9 +1,10 @@
-// import should from 'should';
-// import assert from 'assert';
-import request from 'supertest';
+import chai from 'chai';
 import {expect} from 'chai';
+chai.use(require('chai-http'));
 import app from '../server';
 
+
+// Simple test to check if mocha and travis were setup well
 function ret() {
   return 1;
 }
@@ -14,15 +15,17 @@ describe('Mocha and Travis are working', () => {
   });
 });
 
-
-// Post tes to create and entry, POST /entries
-
-
-
-// describe('Fetch all', () => {
-//   it('Should fetch all entries', () => {
-//     request(app)
-//       .get('/api/v1/users/entries')
-//       .expect(200, done);
-//   });
-// });
+// POST an enrty
+describe("Create an entry", () => {
+  it("Should create an entry", () => {
+    return chai.request(app)
+      .post('/api/v1/entries')
+      .send({title: "Title", text: "Text"})
+      .then(function(res) {
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.equal("An entry has been created");
+        expect(res.body.details.title).to.equal("Title");
+        expect(res.body.details.text).to.equal("Text");
+      });
+  });
+});
