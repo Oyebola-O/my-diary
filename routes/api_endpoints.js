@@ -37,6 +37,12 @@ router.get('/api/v1/entries/:id?', (req, res) => {
     res.send(entries);
   } else {
     // TODO: Case 2, when there is an id
+    if(id >= 0 && id < entries.length){
+      res.send(entries[id]);
+    } else {
+      res.status(404);
+      res.send({message: "Error, there's no entry with that id"});
+    }
   }
 });
 

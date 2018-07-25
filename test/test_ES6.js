@@ -40,3 +40,25 @@ describe('Get all entries', () => {
       expect(res.body[1].id).to.equal(1);
     }));
 });
+
+
+// Get a single entry
+describe('Get single entry', () => {
+  it('Gets a single entry based on it\'s id', () => chai.request(app)
+    .get('/api/v1/entries/1')
+    .then((res) => {
+      expect(res).to.have.status(200);
+      expect(res.body.id).to.equal(1);
+    }));
+});
+
+
+// Get a single entry with id outside range, this should fail
+describe('Get entry that doesn\'t exist', () => {
+  it('Gets a single entry based on it\'s id that does not exist', () => chai.request(app)
+    .get('/api/v1/entries/5')
+    .then((res) => {
+      expect(res).to.have.status(404);
+      expect(res.body.message).to.equal("Error, there's no entry with that id");
+    }));
+});
