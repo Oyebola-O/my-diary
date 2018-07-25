@@ -4,7 +4,14 @@ const router = express.Router();
 const entries = [
   { id: 0, title: 'Title 0', text: 'Text 0' },
   { id: 1, title: 'Title 1', text: 'Text 1' },
+  { id: 2, title: 'Title 2', text: 'Text 2' }
 ];
+
+
+// Default page with endpoints
+router.get('/', (req, res) => {
+  res.render(__dirname + '/howto.mustache');
+});
 
 
 // Create entries
