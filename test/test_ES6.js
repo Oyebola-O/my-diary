@@ -62,3 +62,27 @@ describe('Get entry that doesn\'t exist', () => {
       expect(res.body.message).to.equal("Error, there's no entry with that id");
     }));
 });
+
+
+// Edit an entry
+describe('Edit an entry', () => {
+  it('Edit an entry using it\'s id', () => chai.request(app)
+    .put('/api/v1/entries/1')
+    .send({ title: 'Changed title', text: 'Changed text' })
+    .then((res) => {
+      expect(res).to.have.status(200);
+      expect(res.body.title).to.equal('Changed title');
+      expect(res.body.text).to.equal('Changed text');
+    }));
+});
+
+
+// Edit an entry that's not in the list
+describe('Edit entry that doesn\'t exist', () => {
+  it('Edit an entry based on it\'s id that does not exist', () => chai.request(app)
+    .put('/api/v1/entries/5')
+    .then((res) => {
+      expect(res).to.have.status(404);
+      expect(res.body.message).to.equal("Error, there's no entry with that id");
+    }));
+});
