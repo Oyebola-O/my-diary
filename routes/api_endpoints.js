@@ -16,23 +16,19 @@ router.get('/', (req, res) => {
 
 // Create entries
 router.post('/api/v1/entries', (req, res) => {
-  const title = req.body.title;
-  const text = req.body.text;
+
+  const {title, text} = req.body;
   const id = entries.length;
 
-  const entry = {
-    id,
-    title,
-    text,
-  };
+  const entry = {id, title, text,};
 
+  res.status(201);
   res.send(
     {
       message: 'An entry has been created',
       details: entry,
     },
   );
-  res.status(200).end();
 });
 
 

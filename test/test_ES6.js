@@ -5,24 +5,13 @@ import app from '../server';
 chai.use(require('chai-http'));
 
 
-// Simple test to check if mocha and travis were setup well
-function ret() {
-  return 1;
-}
-
-describe('Mocha and Travis are working', () => {
-  it('is a simple test that checks if moha and travis were setup properly', () => {
-    expect(ret()).to.equal(1);
-  });
-});
-
 // POST an enrty
-describe('Create an entry', () => {
-  it('Should create an entry', () => chai.request(app)
+describe('post entry', () => {
+  it('should create an entry', () => chai.request(app)
     .post('/api/v1/entries')
     .send({ title: 'Title', text: 'Text' })
     .then((res) => {
-      expect(res).to.have.status(200);
+      expect(res).to.have.status(201);
       expect(res.body.message).to.equal('An entry has been created');
       expect(res.body.details.title).to.equal('Title');
       expect(res.body.details.text).to.equal('Text');
@@ -31,8 +20,8 @@ describe('Create an entry', () => {
 
 
 // Get all entries
-describe('Get all entries', () => {
-  it('Gets all the entries in the database', () => chai.request(app)
+describe('get all entries', () => {
+  it('should get all the entries in the database for a user', () => chai.request(app)
     .get('/api/v1/entries')
     .then((res) => {
       expect(res).to.have.status(200);
@@ -43,8 +32,8 @@ describe('Get all entries', () => {
 
 
 // Get a single entry
-describe('Get single entry', () => {
-  it('Gets a single entry based on it\'s id', () => chai.request(app)
+describe('get single entry', () => {
+  it('should get a single entry based on it\'s id', () => chai.request(app)
     .get('/api/v1/entries/1')
     .then((res) => {
       expect(res).to.have.status(200);
@@ -54,8 +43,8 @@ describe('Get single entry', () => {
 
 
 // Get a single entry with id outside range, this should fail
-describe('Get entry that doesn\'t exist', () => {
-  it('Gets a single entry based on it\'s id that does not exist', () => chai.request(app)
+describe('get entry that doesn\'t exist', () => {
+  it('should get a single entry based on it\'s id that does not exist', () => chai.request(app)
     .get('/api/v1/entries/5')
     .then((res) => {
       expect(res).to.have.status(404);
@@ -65,8 +54,8 @@ describe('Get entry that doesn\'t exist', () => {
 
 
 // Edit an entry
-describe('Edit an entry', () => {
-  it('Edit an entry using it\'s id', () => chai.request(app)
+describe('put entry', () => {
+  it('should edit an entry using it\'s id', () => chai.request(app)
     .put('/api/v1/entries/1')
     .send({ title: 'Changed title', text: 'Changed text' })
     .then((res) => {
@@ -78,8 +67,8 @@ describe('Edit an entry', () => {
 
 
 // Edit an entry that's not in the list
-describe('Edit entry that doesn\'t exist', () => {
-  it('Edit an entry based on it\'s id that does not exist', () => chai.request(app)
+describe('put entry that doesn\'t exist', () => {
+  it('should edit an entry based on it\'s id that does not exist', () => chai.request(app)
     .put('/api/v1/entries/5')
     .then((res) => {
       expect(res).to.have.status(404);
