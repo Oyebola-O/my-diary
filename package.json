@@ -2,6 +2,11 @@
   "name": "my-dairy",
   "version": "1.0.0",
   "description": "A place where users can pen down their thoughts and feelings",
+  "author": {
+    "name": "Oyebola Odukoya",
+    "email": "oyebolaodukoya@gmail.com",
+    "company": "HÖBO"
+  },
   "scripts": {
     "test": "mocha --exit"
   },
@@ -22,5 +27,10 @@
     "mocha": "^5.2.0",
     "mustache-express": "^1.2.7",
     "supertest": "^3.1.0"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oyebola-O/my-diary"
   }
 }
