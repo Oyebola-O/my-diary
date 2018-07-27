@@ -9,6 +9,7 @@ a {
   text-decoration: none;
 }
 
+/* The button, From W3CSS */
 .submit {
   margin-top: 20px;
   display: inline-block;
@@ -108,6 +109,7 @@ a {
   width: 550px;
   height: 375px;
   border-radius: 10px;
+  /* Box shadow from codepen.io */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: white;
 }
@@ -171,7 +173,8 @@ a {
 #whole_page {
   width: 100%;
   height: 100%;
-  background-color: rgb(40, 37, 36);
+  /* background-color: rgb(40, 37, 36); */
+  background-color: rgb(23,42,60);
 }
 
 #bar {
@@ -259,6 +262,7 @@ img {
   border: none;
   font-size: 30px;
   text-align: center;
+  /* codepen.io */
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   transition: all .2s ease-in-out;
 }
@@ -284,6 +288,7 @@ img {
 
 /*** Popups ***/
 
+/* The popup, codepen.io */
 .overlay {
   position: fixed;
   top: 0;
@@ -305,6 +310,7 @@ img {
   margin-top: 100px;
   padding: 20px;
   background: #fff;
+  /* background: (28, 26, 25); */
   border-radius: 5px;
   width: 27%;
   height: 60%;
@@ -347,12 +353,14 @@ img {
 }
 
 .notes {
+  /* Page lines, stack oveflow */
   background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
   background-image: linear-gradient(left, white 10px, transparent 10px), linear-gradient(right, white 10px, transparent 10px), linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
   background-size: 100% 100%, 100% 100%, 100% 31px;
+
+
   border: none;
   line-height: 31px;
-
   font-family: monospace;
   font-size: 18px;
   padding: 8px;
