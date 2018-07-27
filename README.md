@@ -14,20 +14,24 @@ Currently these are the available endpoints: https://my-diary-v1-demo.herokuapp.
 To use api, go to
 and append any of the available paths to the end of the url
 
-**Fetch all entries, GET /entries**
-/api/v1/entries
+**Fetch all entries, GET /entries** 
+
+`/api/v1/entries`
 
 
-**Fetch a single entry, GET /entries/:entryId**
-/api/v1/entries/:id
+**Fetch a single entry, GET /entries/:entryId** 
+
+```/api/v1/entries/:id```
 
 
-**Create an entry, POST /entries**
-/api/v1/entries
+**Create an entry, POST /entries** 
+
+```/api/v1/entries```
 
 
-**Modify an entry, PUT /e​ntries​/e​ntryId​**
-/api/v1/entries/:id
+**Modify an entry, PUT /e​ntries​/e​ntryId​** 
+
+```/api/v1/entries/:id```
 
 ## Built With
 This program was build using:
@@ -41,5 +45,8 @@ e.g:
 api/v1
 
 ## Authors
-HOBO
-Oyebola Odukoya
+HOBO 
+
+Oyebola Odukoya 
+
+oyebolaodukoya@gmail.com
