@@ -1,0 +1,143 @@
+<!Doctype html>
+<html>
+<head>
+  <!--LINKS-->
+  <link rel="stylesheet" href="../public/style.css">
+</head>
+
+<body>
+
+    <div id="whole_page">
+
+      <!-- Toolbar -->
+      <div id="bar">
+        <div id="begin">
+          <div class="myDiary_txt" id="diary_intro">My Diary</div>
+          <div id="entries">You have 5 entries</div>
+          <div id="Welcome">Welcome Oyebola!</div>
+        </div>
+      </div>
+
+      <table id="toolbar">
+        <tr>
+
+          <th>
+            <a href="#entry_popup">
+              <div class="image"><img src="../public/images/add.png"></div>
+            </a>
+          </th>
+
+          <th id="middle">
+            <a href="#notif_popup">
+              <div class="image"><img src="../public/images/settings.png"></div>
+            </a>
+          </th>
+
+          <th>
+            <a href="index.html">
+            <div class="image"><img src="../public/images/logout.png"></div>
+            </a>
+          </th>
+
+        </tr>
+      </table>
+
+      <!-- Actual page -->
+      <div id="page">
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> My trip to spain </div>
+            <div class="date"> 9 July 2018 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> This is random </div>
+            <div class="date"> 12 July 2018 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> I have o shoes </div>
+            <div class="date"> 9 August 2018 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> Hash mark </div>
+            <div class="date"> 9 July 2019 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> Justin Timberlake </div>
+            <div class="date"> 9 July 2020 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> This is sparta </div>
+            <div class="date"> 21 May 2021 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> More entries </div>
+            <div class="date"> 21 May 2021 </div>
+          </a>
+        </div>
+
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> I mastered it </div>
+            <div class="date"> 21 May 2021 </div>
+          </a>
+        </div>
+
+        <div class="story">
+          <a href="#entry_popup">
+            <div class="title"> Wawuuu </div>
+            <div class="date"> 21 May 2021 </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- popups -->
+    <div id="entry_popup" class="overlay">
+      <div class="popup">
+        <a class="close" href="#">&times;</a>
+        <form>
+          <input type="text" name="title" autocomplete="off" placeholder="Title" class="note_title" required>
+          <textarea rows="4" cols="50" class="notes"></textarea>
+          <button class="submit"><span>Push </span></button>
+        </form>
+      </div>
+    </div>
+
+
+    <div id="notif_popup" class="overlay">
+      <div class="popup">
+        <a class="close" href="#">&times;</a>
+        <form>
+          <div class="txt3">Set entry notification</div>
+          <input class="date_a_time" type="date" name="notif_date" > <br>
+          <input class="date_a_time" type="time" name="notif_time">
+          <button class="submit"><span>Set</span></button>
+          <div id="curr_notif"></div>
+        </form>
+      </div>
+    </div>
+
+<script src="main.js"></script>
+</body>
+</html>
