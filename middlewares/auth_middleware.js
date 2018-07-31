@@ -19,7 +19,7 @@ export function validateUser(req, res, next){
       next();
     }
 
-    pool.end();
+    // pool.end();
   });
 }
 export function sendJWT(req, res){
@@ -39,6 +39,7 @@ export function userExists(req, res, next){
     if(err){
       res.status(404).send({message: "There was an error accessing the database, please try again later"});
     }
+
     const data = dbres.rows;
 
     if(data.length == 0){
@@ -47,7 +48,6 @@ export function userExists(req, res, next){
       res.send({message: "This username is already taken"});
     }
 
-    pool.end();
   });
 }
 
@@ -60,6 +60,5 @@ export function createUser(req, res){
       res.status(404).send({message: "There was an error accessing the database, please try again later"});
     }
     res.send({message: "An account has been created"});
-    pool.end();
   });
 }
