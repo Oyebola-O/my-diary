@@ -75,3 +75,25 @@ describe('put entry that doesn\'t exist', () => {
       expect(res.body.message).to.equal("Error, there's no entry with that id");
     }));
 });
+
+
+// Test login with correct username and password
+describe('test correct user details', () => {
+  it('should test login api with correct details', () => chai.request(app)
+    .post('/api/v1/login')
+    .send({ username: 'username1', password: 'password1' })
+    .then((res) => {
+      expect(res).to.have.status(200);
+    }));
+});
+
+
+// Test new user
+describe('test if new user can create account', () => {
+  it('should test if a user can create an account', () => chai.request(app)
+    .post('/api/v1/register')
+    .send({ username: 'username6', password: 'password6' ,name: 'user6'})
+    .then((res) => {
+      expect(res).to.have.status(200);
+    }));
+});
