@@ -1,61 +1,91 @@
 import express from 'express';
 import pool from '../db/db.js';
-
-const entries = [
-  { id: 0, title: 'Title 0', text: 'Text 0' },
-  { id: 1, title: 'Title 1', text: 'Text 1' },
-  { id: 2, title: 'Title 2', text: 'Text 2' }
-];
+import jwt from 'jsonwebtoken';
+import {getTheDate} from '../middlewares/auxiliary';
 
 
 // Create entries in the database
 export function postEntries(req, res){
-  const {title, text} = req.body;
-  const id = entries.length;
+  jwt.verify(req.token, 'hobo', (err, data) => {
+    if(err){
+      res.status(403).send({message: "Forbidden", err});
+    } else {
+      const current_user = data["user"]["username"];
+      const {title, text} = req.body;
+      const date = getTheDate();
+      const query = "INSERT INTO public.entries(username, title, text, date) VALUES ('" + current_user + "','" + title + "','" + text + "','" + date + "')";
 
-  const entry = {id, title, text,};
-
-  entries[id] = entry;
-
-  res.status(201);
-  res.send(
-    {
-      message: 'An entry has been created',
-      details: entry,
-      entries,
-    },
-  );
+      pool.query(query, (err) => {
+        if(err){
+          res.send({message: "Could not add entry"});
+        } else {
+          res.status(201).send({message: "An entry has been created"});
+        }
+      });
+    }
+  });
 }
+
 
 // Get entries from the database
 export function getEntries(req, res){
-  const id = req.params.id;
-    if (!id) {
-      res.send(entries);
+  jwt.verify(req.token, 'hobo', (err, data) => {
+    if(err){
+      res.status(403).send({message: "Forbidden"});
     } else {
-      // Corner case
-      if (id >= 0 && id < entries.length) {
-        res.send(entries[id]);
-      } else {
-        res.status(404);
-        res.send({ message: "Error, there's no entry with that id" });
-      }
+      const current_user = data["user"]["username"];
+      const id = req.params.id;
+      const query = "SELECT * FROM public.entries WHERE username LIKE " + "'" + current_user + "%'";
+
+      pool.query(query, (err, dbres) => {
+        if(err){ res.status(404).send({message: "Error accessing database"}) }
+        const entries = dbres.rows;
+
+        if(!id){
+          res.send(entries);
+        } else {
+          for(var i = 0; i < entries.length; i++){
+            if(entries[i]["id"] == id){
+              res.send(entries[i]);
+            }
+          }
+          res.send({message: "You don't have an entry with that id"});
+        }
+      });
     }
+  });
 }
+
 
 // Modify entries in the database
 export function modifyEntries(req, res){
-  const id = Number(req.params.id);
-  if (id >= 0 && id < entries.length) {
-    const title = req.body.title;
-    const text = req.body.text;
+  jwt.verify(req.token, 'hobo', (err, data) => {
+    if(err){
+      res.status(403).send({message: "Forbidden"});
+    } else {
+      const current_user = data["user"]["username"];
+      const id = req.params.id;
+      const {title, text} = req.body;
+      const todays_date = getTheDate();
 
-    entries[id].title = title;
-    entries[id].text = text;
+      const query = "SELECT date FROM public.entries WHERE id = " + id + "AND username = " + "'" + current_user + "'";
+      pool.query(query, (err, dbres) => {
+        if(err){ res.status(404).send({message: "Error accessing database"})}
 
-    res.send(entries[id]);
-  } else {
-    res.status(404);
-    res.send({ message: "Error, there's no entry with that id" });
-  }
+        // Check if id is valid
+        if(dbres.rows.length == 0){ res.send({message: "You do not have an entry with that id"})}
+
+        if(dbres.rows[0]['date'] == todays_date){
+          const query1 = "UPDATE public.entries SET title= '" + title + "', text= '" + text + "' " + "WHERE id = "  + id + " AND username = '" + current_user + "'";
+          pool.query(query1, (err, dbres1) => {
+            if(err){res.status(404).send({message: "Error accessing database, Update"})}
+            else { res.send({message: "Entry updated"}) }
+          });
+
+        } else {
+          res.send({message: "You can't edit this entry anymore"});
+        }
+      });
+    }
+  });
 }
