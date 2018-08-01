@@ -1,7 +1,7 @@
 import express from 'express';
 import pool from '../db/db.js';
 import jwt from 'jsonwebtoken';
-import {getTheDate} from '../middlewares/auxiliary';
+import {getTheDate, checkOwner} from '../middlewares/auxiliary';
 
 
 // Create entries in the database
@@ -42,14 +42,15 @@ export function getEntries(req, res){
         const entries = dbres.rows;
 
         if(!id){
-          res.send(entries);
+          res.send(entries)
         } else {
-          for(var i = 0; i < entries.length; i++){
-            if(entries[i]["id"] == id){
-              res.send(entries[i]);
-            }
+
+          let [userOwnsId, index] = checkOwner(entries, id);
+          if(userOwnsId){
+            res.send(entries[index]);
+          } else {
+            res.send({message: "You don't have an entry with that id"});
           }
-          res.send({message: "You don't have an entry with that id"});
         }
       });
     }

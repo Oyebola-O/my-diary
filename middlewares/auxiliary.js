@@ -7,3 +7,17 @@ export function getTheDate(){
   date += months[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
   return date;
 }
+
+// Returns if a user owns and ID
+export function checkOwner(entries, id){
+  let ownsId = false;
+  let index;
+  for(var i = 0; i < entries.length; i++){
+    if(entries[i]["id"] == id){
+      ownsId = true;
+      index = i;
+      break;
+    }
+  }
+  return [ownsId, index];
+}

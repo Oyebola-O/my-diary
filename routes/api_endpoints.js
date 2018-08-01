@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Default page with endpoints
-router.get('/api/v1', (req, res) => {
+router.get('/', (req, res) => {
   res.render(__dirname + '/howto.mustache');
 });
 
