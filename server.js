@@ -14,7 +14,6 @@ app.set('view engine', 'mustache');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.get('/');
 app.use('/api/v1', router);
 app.use('/api/v1', auth);
 
