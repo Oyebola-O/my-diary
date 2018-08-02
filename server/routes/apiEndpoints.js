@@ -1,6 +1,8 @@
 import express from 'express';
-import {postEntries, getEntries, modifyEntries} from '../middlewares/api_middleware';
-import {verifyToken} from '../middlewares/auth_middleware';
+import { postEntries } from '../models/apiMiddleware';
+import { getEntries } from '../models/apiMiddleware';
+import { modifyEntries } from '../models/apiMiddleware';
+import { verifyToken } from '../models/authMiddleware';
 const router = express.Router();
 
 

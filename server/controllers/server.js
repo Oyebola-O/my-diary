@@ -1,8 +1,8 @@
 import express from 'express';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
-import router from './routes/api_endpoints';
-import auth from './routes/auth'
+import router from '../routes/apiEndpoints';
+import auth from '../routes/authEndpoints'
 
 const port = process.env.PORT || 8080;
 const app = express();
