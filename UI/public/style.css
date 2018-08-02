@@ -50,6 +50,14 @@ a {
   right: 0;
 }
 
+#publish{
+  max-width: 120px;
+  max-height: 50px;
+  outline-width: 0px;
+  background: blue;
+}
+
+
 .background {
   opacity: 0.95;
   height: 100%;
@@ -277,14 +285,16 @@ img {
 }
 
 .title {
-  color: rgb(0, 119, 255);
+  /* color: rgb(0, 119, 255); */
+  color: white;
   margin-top: 40px;
   font-family:monospace;
   font-size: 25px;
 }
 
 .date {
-  color: rgb(0, 119, 255);
+  /* color: rgb(0, 119, 255); */
+  color: white;
   margin-top: 60px;
   font-family:monospace;
   font-size: 16px;
@@ -322,6 +332,10 @@ img {
   transition: all 500ms ease-in-out;
 }
 
+#entry_width {
+  width: 60%;
+}
+
 .popup .close {
   position: absolute;
   top: 20px;
@@ -341,6 +355,15 @@ img {
   max-width: 400px;
 }
 
+
+#id {
+  float: right;
+  color: grey;
+  padding-top: 20px;
+  padding-right: 15px;
+  font-size: 15px;
+}
+
 .note_title {
   margin: 20px;
   font-size: 25px;
@@ -351,6 +374,7 @@ img {
   border: none;
   border-bottom: 2px solid lightgrey;
 }
+
 
 .note_title:focus {
   border-bottom: 3px solid blue;

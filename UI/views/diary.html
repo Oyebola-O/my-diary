@@ -3,6 +3,7 @@
 <head>
   <!--LINKS-->
   <link rel="stylesheet" href="../public/style.css">
+  <script src="../../frontend/runmain.js"></script>
 </head>
 
 <body>
@@ -23,19 +24,19 @@
 
           <th>
             <a href="#entry_popup">
-              <div class="image"><img src="../public/images/add.png"></div>
+              <div class="image" title="Add Entry"><img src="../public/images/add.png"></div>
             </a>
           </th>
 
           <th id="middle">
             <a href="#notif_popup">
-              <div class="image"><img src="../public/images/settings.png"></div>
+              <div class="image" title="Settings"><img src="../public/images/settings.png"></div>
             </a>
           </th>
 
           <th>
             <a href="index.html">
-            <div class="image"><img src="../public/images/logout.png"></div>
+            <div class="image" title="Logout"><img src="../public/images/logout.png"></div>
             </a>
           </th>
 
@@ -45,7 +46,7 @@
       <!-- Actual page -->
       <div id="page">
         <div class="story">
-          <a href="#entry_popup">
+          <a href="#entry_popup" onclick="defautlToggle()">
             <div class="title"> My trip to spain </div>
             <div class="date"> 9 July 2018 </div>
           </a>
@@ -114,12 +115,14 @@
 
     <!-- popups -->
     <div id="entry_popup" class="overlay">
-      <div class="popup">
+      <div class="popup" id="entry_width">
         <a class="close" href="#">&times;</a>
         <form>
-          <input type="text" name="title" autocomplete="off" placeholder="Title" class="note_title" required>
-          <textarea rows="4" cols="50" class="notes"></textarea>
-          <button class="submit"><span>Push </span></button>
+          <input type="text" name="title" autocomplete="off" class="note_title" maxlength="35" id="entry_title" required>
+          <textarea rows="4" cols="50" class="notes" id="textarea"></textarea>
+          <button class="submit" id="publish"><span> Publish </span></button>
+          <button type="button" class="submit" id="publish"><span onclick="toggleView()" id="editB">Edit</span></button>
+          <span id="id">1536</span>
         </form>
       </div>
     </div>
@@ -138,6 +141,5 @@
       </div>
     </div>
 
-<script src="main.js"></script>
 </body>
 </html>
