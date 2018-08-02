@@ -153,6 +153,10 @@ a {
   border-bottom: 3px solid grey;
 }
 
+#login_b {
+  margin-top: 56.5px !important;
+}
+
 ::placeholder {
   color: blue;
   opacity: 0.8;
