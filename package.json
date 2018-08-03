@@ -8,12 +8,22 @@
     "company": "HÖBO"
   },
   "scripts": {
-    "test": "mocha --exit --timeout 5000 server/tests"
+    "test": "cross-env NODE_ENV=test nyc mocha --exit --timeout 5000 \"server/tests/*.js\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "babel-register": "^6.26.0",
     "express": "^4.16.3"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "html"
+    ]
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -32,7 +42,8 @@
     "mustache-express": "^1.2.7",
     "nyc": "^12.0.2",
     "pg": "^7.4.3",
-    "supertest": "^3.1.0"
+    "supertest": "^3.1.0",
+    "cross-env": "^5.2.0"
   },
   "main": "server.js",
   "repository": {
