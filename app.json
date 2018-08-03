@@ -1,7 +1,0 @@
-{
-  "name": "my-diary",
-  "description": "A website that allows users to pen down their thoughts and feelings",
-  "repository": "https://github.com/Oyebola-O/my-diary.git",
-  "keywords": ["node", "express", "heroku"],
-  "image": "heroku/nodejs"
-}
