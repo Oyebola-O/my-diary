@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+  <!--LINKS-->
+  <link rel="stylesheet" href="UI/public/style.css">
+</head>
+
+<body>
+  <div id="body" class="background">
+
+    <!-- Page text -->
+    <div>
+      <span class="myDiary_txt" id="acc_intro"> My Diary </span>
+      <span id="txt1"> Record your stories </span>
+    </div>
+
+
+    <!-- Login and Create Account Elements -->
+    <div id="main">
+
+      <span class="txt2"> Continue to journal </span>
+
+      <form class="forms" action="UI/views/diary.html">
+        <input id="login_user" type="text" autocomplete="off" placeholder="Username" class="in" required><br>
+        <input id="login_password" type="password" class="in" placeholder="Password" required><br>
+        <button class="submit" id="login_b"><span>Login </span></button><br>
+        <span class="link"> Don't have an account? Sign up. </span>
+      </form>
+
+
+      <div id="no_account">
+        <span class="txt2"> Sign Up </span><br>
+        <form id="sign_up" action="UI/views/diary.html">
+          <input type="text" name="name" autocomplete="off" placeholder="Your name" class="in" id="in_sign_up" required><br>
+          <input type="text" name="username" autocomplete="off" placeholder="Username" class="in" id="in_sign_up" required><br>
+          <input type="password" name="password" class="in" placeholder="Password" id="in_sign_up" required><br>
+          <button class="submit"><span>Create Account </span></button>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+</html>
