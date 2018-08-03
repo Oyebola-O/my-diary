@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Oyebola-O/my-diary.svg?branch=develop)](https://travis-ci.org/Oyebola-O/my-diary)
+[![Coverage Status](https://coveralls.io/repos/github/Oyebola-O/my-diary/badge.svg?branch=develop)](https://coveralls.io/github/Oyebola-O/my-diary?branch=develop)
 
 # My Diary
 MyDiary is an online journal where users can pen down their thoughts and feelings. It gives users a place where they can create, store and edit and document their stories, thoughts and feelings.
