@@ -1,47 +1,64 @@
 [![Build Status](https://travis-ci.org/Oyebola-O/my-diary.svg?branch=develop)](https://travis-ci.org/Oyebola-O/my-diary)
 
 # My Diary
-MyDiary is an online journal where users can pen down their thoughts and feelings.
+MyDiary is an online journal where users can pen down their thoughts and feelings. It gives users a place where they can create, store and edit and document their stories, thoughts and feelings.
 
 ## Getting Started
-This is v1 of my diary api. You do not need to install anything to use it.
-All you need is a browser where you can send http requests through.
+There are 2 ways to interact with this app. 
+
+Either from the GUI on github pages :
+* https://oyebola-o.github.io/my-diary/UI/views/index.html
+* https://oyebola-o.github.io/my-diary/UI/views/diary.html
+
+or from the api on heroku : https://my-diary-v1-demo.herokuapp.com/
 
 
-## How to use
+## Application Featusers
+* New users can sign up
+* Old users can login
+* Users can create entries
+* Users can fetch entries
+* Users can edit entries
+
+
+## How to use Api
 Currently these are the available endpoints: https://my-diary-v1-demo.herokuapp.com/
 To use api, go to
-and append any of the available paths to the end of the url
+and append any of the available paths to the end of the url. You would however need to create an account and login to use these. It would be most convenient to use postman with this api.
 
-**Fetch all entries, GET /entries** 
+**Sign up** 
 
-`/api/v1/entries`
+`/auth/signup`
 
+**Login** 
 
-**Fetch a single entry, GET /entries/:entryId** 
+`/auth/login`
 
-```/api/v1/entries/:id```
+**Fetch all entries (GET) ** 
 
-
-**Create an entry, POST /entries** 
-
-```/api/v1/entries```
+`/entries`
 
 
-**Modify an entry, PUT /e​ntries​/e​ntryId​** 
+**Fetch a single entry using id (GET) ** 
 
-```/api/v1/entries/:id```
+```/entries/:id```
+
+
+**Create an entry (POST) ** 
+
+```/entries```
+
+
+**Modify an entry (PUT) ** 
+
+```/entries/:id```
 
 ## Built With
-This program was build using:
-Node.js - Open source server environment
-Express - A node framework
+* Node.js - Open source server environment
+* Express - A node framework
+* Postgresql - A query language
+* HTML and CSS
 
-
-## Versioning
-The apps api's are versioned using a v followed by an ordinary number
-e.g:
-api/v1
 
 ## Authors
 HOBO 
