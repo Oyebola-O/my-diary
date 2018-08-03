@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Default page with endpoints
 router.get('/', (req, res) => {
-  res.render(__dirname + '/howto.mustache');
+  res.render('../UI/views/howto.mustache');
 });
 
 // Create entries

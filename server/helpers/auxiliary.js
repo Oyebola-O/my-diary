@@ -21,3 +21,15 @@ export const checkOwner = (entries, id) => {
   }
   return [ownsId, index];
 }
+
+export const validate = (value) => {
+  let code = 0;
+  let check = [undefined, '', ' '];
+  for(var i = 0; i < check.length; i++){
+    if(value === check[i] || value.length == 0 || value.trim().length == 0){
+      code = 1;
+      break;
+    }
+  }
+  return code;
+}

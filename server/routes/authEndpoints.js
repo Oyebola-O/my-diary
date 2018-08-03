@@ -9,6 +9,6 @@ const auth = express.Router();
 auth.post('/login', validateUser, sendJWT);
 
 // Register Route
-auth.post('/register', userExists, createUser);
+auth.post('/signup', userExists, createUser);
 
 export default auth;

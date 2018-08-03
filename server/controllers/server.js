@@ -14,8 +14,8 @@ app.set('view engine', 'mustache');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/api/v1', router);
-app.use('/api/v1', auth);
+app.use('/', router);
+app.use('/auth', auth);
 
 app.listen(port, () => {
   console.log(`Server us listening on port: ${port}`);
