@@ -9,6 +9,7 @@ a {
   text-decoration: none;
 }
 
+/* The button, From W3CSS */
 .submit {
   margin-top: 20px;
   display: inline-block;
@@ -48,6 +49,14 @@ a {
   opacity: 1;
   right: 0;
 }
+
+#publish{
+  max-width: 120px;
+  max-height: 50px;
+  outline-width: 0px;
+  background: blue;
+}
+
 
 .background {
   opacity: 0.95;
@@ -108,8 +117,9 @@ a {
   width: 550px;
   height: 375px;
   border-radius: 10px;
+  /* Box shadow from codepen.io */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  background-color: white;
+  background-color: rgb(234, 248, 255);
 }
 
 #no_account {
@@ -151,6 +161,10 @@ a {
   border-bottom: 3px solid grey;
 }
 
+#login_b {
+  margin-top: 56.5px !important;
+}
+
 ::placeholder {
   color: blue;
   opacity: 0.8;
@@ -171,13 +185,13 @@ a {
 #whole_page {
   width: 100%;
   height: 100%;
-  background-color: rgb(40, 37, 36);
+  background-color: white;
 }
 
 #bar {
   width: 100%;
   height: 11%;
-  background-color: rgb(28, 26, 25);
+  background-color: rgb(23,42,60);
 }
 
 #begin {
@@ -215,7 +229,7 @@ a {
   margin: auto;
   width: 50px;
   height: 50px;
-  background-color: rgb(0, 119, 255);
+  background-color: rgb(28, 26, 25, 0.9);
   transition-duration: 0.4s;
 }
 
@@ -254,8 +268,7 @@ img {
 .story {
   width: 300px;
   height: 200px;
-  /* background-color: white; */
-  background-color: rgb(28, 26, 25);
+  background-color: rgb(23,42,60);
   border: none;
   font-size: 30px;
   text-align: center;
@@ -269,14 +282,14 @@ img {
 }
 
 .title {
-  color: rgb(0, 119, 255);
+  color: white;
   margin-top: 40px;
   font-family:monospace;
   font-size: 25px;
 }
 
 .date {
-  color: rgb(0, 119, 255);
+  color: white;
   margin-top: 60px;
   font-family:monospace;
   font-size: 16px;
@@ -284,6 +297,7 @@ img {
 
 /*** Popups ***/
 
+/* The popup, codepen.io */
 .overlay {
   position: fixed;
   top: 0;
@@ -312,6 +326,10 @@ img {
   transition: all 500ms ease-in-out;
 }
 
+#entry_width {
+  width: 60%;
+}
+
 .popup .close {
   position: absolute;
   top: 20px;
@@ -331,6 +349,15 @@ img {
   max-width: 400px;
 }
 
+
+#id {
+  float: right;
+  color: grey;
+  padding-top: 20px;
+  padding-right: 15px;
+  font-size: 15px;
+}
+
 .note_title {
   margin: 20px;
   font-size: 25px;
@@ -342,17 +369,20 @@ img {
   border-bottom: 2px solid lightgrey;
 }
 
+
 .note_title:focus {
   border-bottom: 3px solid blue;
 }
 
 .notes {
+  /* Page lines, stack oveflow */
   background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
   background-image: linear-gradient(left, white 10px, transparent 10px), linear-gradient(right, white 10px, transparent 10px), linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
   background-size: 100% 100%, 100% 100%, 100% 31px;
+
+
   border: none;
   line-height: 31px;
-
   font-family: monospace;
   font-size: 18px;
   padding: 8px;

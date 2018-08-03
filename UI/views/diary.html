@@ -3,6 +3,7 @@
 <head>
   <!--LINKS-->
   <link rel="stylesheet" href="../public/style.css">
+  <script src="../../frontend/main.js"></script>
 </head>
 
 <body>
@@ -20,114 +21,93 @@
 
       <table id="toolbar">
         <tr>
-
-          <th>
-            <a href="#entry_popup">
-              <div class="image"><img src="../public/images/add.png"></div>
-            </a>
+          <th><a href="#add_popup">
+            <div class="image" title="Add Entry"><img src="../public/images/add.png"></div></a>
           </th>
 
-          <th id="middle">
-            <a href="#notif_popup">
-              <div class="image"><img src="../public/images/settings.png"></div>
-            </a>
+          <th id="middle"><a href="#notif_popup">
+            <div class="image" title="Settings"><img src="../public/images/settings.png"></div></a>
           </th>
 
-          <th>
-            <a href="index.html">
-            <div class="image"><img src="../public/images/logout.png"></div>
-            </a>
+          <th><a href="index.html">
+            <div class="image" title="Logout"><img src="../public/images/logout.png"></div></a>
           </th>
-
         </tr>
       </table>
 
+
       <!-- Actual page -->
-      <div id="page">
-        <div class="story">
-          <a href="#entry_popup">
+      <div id="page"><div class="story">
+          <a href="#entry_popup" onclick="defautlToggle()">
             <div class="title"> My trip to spain </div>
-            <div class="date"> 9 July 2018 </div>
-          </a>
+            <div class="date"> 9 July 2018 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> This is random </div>
-            <div class="date"> 12 July 2018 </div>
-          </a>
+            <div class="date"> 12 July 2018 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> I have o shoes </div>
-            <div class="date"> 9 August 2018 </div>
-          </a>
+            <div class="date"> 9 August 2018 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> Hash mark </div>
-            <div class="date"> 9 July 2019 </div>
-          </a>
+            <div class="date"> 9 July 2019 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> Justin Timberlake </div>
-            <div class="date"> 9 July 2020 </div>
-          </a>
+            <div class="date"> 9 July 2020 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> This is sparta </div>
-            <div class="date"> 21 May 2021 </div>
-          </a>
+            <div class="date"> 21 May 2021 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> More entries </div>
-            <div class="date"> 21 May 2021 </div>
-          </a>
+            <div class="date"> 21 May 2021 </div></a>
         </div>
 
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> I mastered it </div>
-            <div class="date"> 21 May 2021 </div>
-          </a>
+            <div class="date"> 21 May 2021 </div></a>
         </div>
 
-        <div class="story">
-          <a href="#entry_popup">
+        <div class="story"><a href="#entry_popup">
             <div class="title"> Wawuuu </div>
-            <div class="date"> 21 May 2021 </div>
-          </a>
+            <div class="date"> 21 May 2021 </div></a>
         </div>
-
       </div>
-
     </div>
 
     <!-- popups -->
-    <div id="entry_popup" class="overlay">
-      <div class="popup">
-        <a class="close" href="#">&times;</a>
+    <div id="entry_popup" class="overlay"><div class="popup" id="entry_width"><a class="close" href="#">&times;</a>
         <form>
-          <input type="text" name="title" autocomplete="off" placeholder="Title" class="note_title" required>
-          <textarea rows="4" cols="50" class="notes"></textarea>
-          <button class="submit"><span>Push </span></button>
+          <input type="text" name="title" autocomplete="off" class="note_title" maxlength="35" id="entry_title" required>
+          <textarea rows="4" cols="50" class="notes" id="textarea"></textarea>
+          <button type="button" class="submit" id="publish"><span onclick="toggleView()" id="editB">Edit</span></button>
+          <span id="id">1536</span>
+        </form>
+      </div>
+    </div>
+
+    <div id="add_popup" class="overlay"><div class="popup" id="entry_width"><a class="close" href="#">&times;</a>
+        <form>
+          <input type="text" name="title" autocomplete="off" class="note_title" maxlength="35" id="entry_title" required>
+          <textarea rows="4" cols="50" class="notes" id="textarea"></textarea>
+          <button class="submit" id="publish"><span> Publish </span></button>
         </form>
       </div>
     </div>
 
 
-    <div id="notif_popup" class="overlay">
-      <div class="popup">
-        <a class="close" href="#">&times;</a>
+    <div id="notif_popup" class="overlay"><div class="popup"><a class="close" href="#">&times;</a>
         <form>
           <div class="txt3">Set entry notification</div>
           <input class="date_a_time" type="date" name="notif_date" > <br>
@@ -138,6 +118,5 @@
       </div>
     </div>
 
-<script src="main.js"></script>
 </body>
 </html>

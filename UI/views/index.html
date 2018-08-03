@@ -3,7 +3,8 @@
 <head>
   <!--LINKS-->
   <link rel="stylesheet" href="../public/style.css">
-  <script src="main.js"></script>
+  <script src="../../frontend/actions/post.js"></script>
+  <script src="../../frontend/main.js"></script>
 </head>
 
 <body>
@@ -18,37 +19,29 @@
 
     <!-- Login and Create Account Elements -->
     <div id="main">
+
       <span class="txt2"> Continue to journal </span>
-      <form class="forms" action="diary.html" method="post">
 
-        <input type="text" name="username" autocomplete="off" placeholder="Username" class="in" required><br>
-
-        <input type="password" name="password" class="in" placeholder="Password" required><br>
-
-        <button class="submit"><span>Login </span></button>
-
-        <br>
-
+      <form class="forms" onsubmit="login()">
+        <input id="login_user" type="text" autocomplete="off" placeholder="Username" class="in" required><br>
+        <input id="login_password" type="password" class="in" placeholder="Password" required><br>
+        <button class="submit" id="login_b"><span>Login </span></button><br>
         <span class="link"> Don't have an account? Sign up. </span>
-
       </form>
+
 
       <div id="no_account">
         <span class="txt2"> Sign Up </span><br>
-        <form id="sign_up" action="diary.html" method="post">
-
+        <form id="sign_up" onsubmit="register()">
           <input type="text" name="name" autocomplete="off" placeholder="Your name" class="in" id="in_sign_up" required><br>
-
           <input type="text" name="username" autocomplete="off" placeholder="Username" class="in" id="in_sign_up" required><br>
-
           <input type="password" name="password" class="in" placeholder="Password" id="in_sign_up" required><br>
-
           <button class="submit"><span>Create Account </span></button>
         </form>
-
       </div>
-    </div>
 
+
+    </div>
   </div>
 </body>
 </html>
